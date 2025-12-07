@@ -22,8 +22,8 @@ internal class UserDb
         {
             if (users.Any(user => user == u))
             {
-                users.Where(user => user == u).FirstOrDefault().Password = null;
-                users.Where(user => user == u).FirstOrDefault().Name = null;
+                users.Where(user => user == u).FirstOrDefault().Password = u.Password;
+                users.Where(user => user == u).FirstOrDefault().Name = u.Name;
             }
             else
                 throw new InvalidOperationException("no such user exists");

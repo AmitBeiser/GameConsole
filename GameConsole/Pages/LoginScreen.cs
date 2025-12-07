@@ -1,4 +1,5 @@
 ﻿using GameConsole.Base;
+using GameConsole.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,15 @@ namespace GameConsole.Pages
 		{
 			base.Show();
 			CenterText("Enter Login Info");
+			CenterText("Username:");
+			string username = Console.ReadLine();
+			CenterText("Password:");
+			string password = Console.ReadLine();
+			UserDb.Login(username, password);
+			CenterText("Login Successful! Press any key to continue...");
 			Console.ReadKey();
+			Screen next = new MainMenu();
+			next.Show();
 		}
 	}
 }

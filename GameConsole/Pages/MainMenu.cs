@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace GameConsole.Pages
 {
 	internal class MainMenu:MenuScreen
 	{
 		public MainMenu() : base("Main Menu")
 		{
-			Add(new MenuItem("Register", new RegisterScreen()));
+			Add("Register", new RegisterScreen());
 			Add("Login",new LoginScreen());
+			Add("Profile", new ProfileScreen());
 		}
 	}
 }

@@ -20,9 +20,7 @@ namespace GameConsole.Pages
 
             String bob = "baruch aba";
             CenterText(bob);
-
             Console.ReadKey();
-
             Screen next = new MainMenu();
             next.Show();
         }
