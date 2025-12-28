@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using GameConsole.Models;
 namespace GameConsole.Data;
 internal class UserDb
 {
-    private static List<User> users;
+    private static List<User> users = new List<User>();
     public static User RegisterUser(string name, string uName, string password)
         {
             if (users.Any(u => u.Username == uName))

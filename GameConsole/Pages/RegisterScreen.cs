@@ -10,7 +10,7 @@ namespace GameConsole.Pages
 {
 	internal class RegisterScreen : Screen
 	{
-		public RegisterScreen() : base("Register Page")
+		public RegisterScreen() : base("Register Page", ConsoleColor.DarkMagenta)
 		{
 		}
 		public override void Show()
@@ -23,7 +23,8 @@ namespace GameConsole.Pages
 			string username = Console.ReadLine();
 			CenterText("Password:");
 			string password = Console.ReadLine();
-			UserDb.RegisterUser(name, username, password);
+			var newUser = UserDb.RegisterUser(name, username, password);
+			consoleGameApp.user = newUser;
 			CenterText("Registration Successful! Press any key to continue...");
 			Console.ReadKey();
 			Screen next = new MainMenu();

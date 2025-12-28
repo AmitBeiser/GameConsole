@@ -10,22 +10,29 @@ namespace GameConsole.Pages
 {
 	internal class LoginScreen : Screen
 	{
-		public LoginScreen() : base("Login Page")
+		public LoginScreen() : base("Login Page", ConsoleColor.DarkMagenta)
 		{
 		}
 		public override void Show()
 		{
 			base.Show();
-			CenterText("Enter Login Info");
-			CenterText("Username:");
-			string username = Console.ReadLine();
-			CenterText("Password:");
-			string password = Console.ReadLine();
-			UserDb.Login(username, password);
-			CenterText("Login Successful! Press any key to continue...");
-			Console.ReadKey();
-			Screen next = new MainMenu();
-			next.Show();
+            CenterText("Welcome back");
+            CenterText("Enter your username:");
+            string username = Console.ReadLine();
+            CenterText("Enter your password:");
+            string password = Console.ReadLine();
+            var us = UserDb.Login(username, password);
+            if (us == null)
+            {
+                CenterText("Invalid username or password. Press any key to return to main menu.");
+                Console.ReadKey();
+                Screen nexts = new MainMenu();
+                nexts.Show();
+            }
+            CenterText("Login successful! Press any key to continue.");
+            Console.ReadKey();
+            Screen next = new ConnectedScreen();
+            next.Show();
 		}
 	}
 }

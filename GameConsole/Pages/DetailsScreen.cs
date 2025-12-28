@@ -4,7 +4,7 @@ using GameConsole.Models;
 namespace GameConsole.Pages;
 public class DetailsScreen : Screen
 {
-    public DetailsScreen() : base("Details Screen")
+    public DetailsScreen() : base("Details Screen", ConsoleColor.DarkGray)
     {
     }
     public override void Show()
@@ -16,7 +16,7 @@ public class DetailsScreen : Screen
         CenterText($"Username: {currentUser.Username}");
         CenterText("Press any key to return to the main menu...");
         Console.ReadKey();
-        Screen next = new MainMenu();
+        Screen next = new ConnectedScreen();
         next.Show();
     }
 }

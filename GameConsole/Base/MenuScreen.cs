@@ -8,7 +8,7 @@ namespace GameConsole.Base
 	internal class MenuScreen : Screen
 	{
 		private List<MenuItem> items;
-		public MenuScreen(string title) : base(title)
+		public MenuScreen(string title) : base(title, ConsoleColor.Blue)
 		{
 			items=new List<MenuItem>();
 		}
@@ -27,33 +27,48 @@ namespace GameConsole.Base
 
 			CenterText("Choose your Screen:");
 			bool exit = false;
-			int choose = 0;
 			while (!exit)
 			{
 				for (int i = 0; i < items.Count; i++)
 				{
 					CenterText($"{i + 1} - {items[i].DisplayName}");
 				}
-				CenterText($"{items.Count+1}-Exit");
+				int exitOption = items.Count + 1;
+				CenterText($"{exitOption} - Exit");
 
-				CenterText($"choose between 1-{items.Count+1})"); 
-				int.TryParse(Console.ReadLine(),out choose );
-				if (choose > 0 && choose <= items.Count)
-					exit = true;
-
-
-				if (choose <= items.Count)
+				CenterText($"Choose between 1-{exitOption}:");
+				string? input = Console.ReadLine();
+				if (!int.TryParse(input, out int choice))
 				{
-					items[choose - 1].Screen.Show();
+					CenterText("Invalid selection. Press any key to try again.");
+					Console.ReadKey(true);
 					Console.Clear();
-					Show();
+					base.Show();
+					continue;
 				}
-				else
+
+				if (choice == exitOption)
 				{
 					exit = true;
+					break;
 				}
+
+				if (choice >= 1 && choice <= items.Count)
+				{
+					Console.Clear();
+					items[choice - 1].Screen.Show();
+					Console.Clear();
+					base.Show();
+					continue;
+				}
+
+				CenterText("Selection out of range. Press any key to try again.");
+				Console.ReadKey(true);
+				Console.Clear();
+				base.Show();
 			}
-			Console.ReadKey();
+			CenterText("Press any key to continue...");
+			Console.ReadKey(true);
 		}	
 	}
 }

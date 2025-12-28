@@ -3,12 +3,11 @@ using GameConsole.Base;
 using GameConsole.Data;
 using GameConsole.Models;
 namespace GameConsole.Pages;
-internal class ProfileScreen : MenuScreen
+internal class ProfileMenu : MenuScreen
 {
-    public ProfileScreen() : base("Profile Screen")
+    public ProfileMenu() : base("Profile Screen")
     {
         Add("View Details", new DetailsScreen());
         Add("Update Details", new UpdateScreen());
     }
-    
 }

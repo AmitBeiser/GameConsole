@@ -12,7 +12,6 @@ namespace GameConsole.Pages
 		{
 			Add("Register", new RegisterScreen());
 			Add("Login",new LoginScreen());
-			Add("Profile", new ProfileScreen());
 		}
 	}
 }

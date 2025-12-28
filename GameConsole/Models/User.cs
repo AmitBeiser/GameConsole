@@ -14,4 +14,20 @@ internal class User
         Password = password;
         HighScores = new List<HighScore>();
     }
+    public void ChangeHighScore(HighScore score)
+    {
+        var existing = HighScores.FirstOrDefault(s => s.GameName == score.GameName);
+        if (existing != null)
+        {
+            if (existing.Score < score.Score)
+            {
+                HighScores.Remove(existing);
+                HighScores.Add(score);
+            }
+        }
+        else
+        {
+            HighScores.Add(score);
+        }
+    }
 }

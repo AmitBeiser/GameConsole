@@ -6,7 +6,7 @@ internal class HighScore
     public int Score { get; set; }
     public DateTime Date { get; set; }
 
-    public HighScore(string gameName, int score)
+    public HighScore(string gameName, string username, int score)
     {
         GameName = gameName;
         Score = score;

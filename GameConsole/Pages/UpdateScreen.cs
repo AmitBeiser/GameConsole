@@ -5,7 +5,7 @@ using GameConsole.Models;
 namespace GameConsole.Pages;
 internal class UpdateScreen : Screen
 {
-    public UpdateScreen() : base("Update Screen")
+    public UpdateScreen() : base("Update Screen", ConsoleColor.DarkGray)
     {
     }
     public override void Show()
