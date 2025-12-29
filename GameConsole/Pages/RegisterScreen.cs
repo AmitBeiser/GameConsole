@@ -10,7 +10,10 @@ namespace GameConsole.Pages
 {
 	internal class RegisterScreen : Screen
 	{
-		public RegisterScreen() : base("Register Page", ConsoleColor.DarkMagenta)
+		public RegisterScreen() : base(@$"
+┏━┓┏━╸┏━╸╻┏━┓╺┳╸┏━╸┏━┓
+┣┳┛┣╸ ┃╺┓┃┗━┓ ┃ ┣╸ ┣┳┛
+╹┗╸┗━╸┗━┛╹┗━┛ ╹ ┗━╸╹┗╸", ConsoleColor.DarkMagenta)
 		{
 		}
 		public override void Show()

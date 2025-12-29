@@ -10,7 +10,10 @@ namespace GameConsole.Pages
 {
 	internal class LoginScreen : Screen
 	{
-		public LoginScreen() : base("Login Page", ConsoleColor.DarkMagenta)
+		public LoginScreen() : base(@$"
+╻  ┏━┓┏━╸╻┏┓╻ 
+┃  ┃ ┃┃╺┓┃┃┗┫ 
+┗━╸┗━┛┗━┛╹╹ ╹", ConsoleColor.DarkMagenta)
 		{
 		}
 		public override void Show()
