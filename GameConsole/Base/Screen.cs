@@ -23,7 +23,46 @@ namespace GameConsole.Base
 		public virtual void Show()
 		{
 			Console.Clear();
-			CenterText(Title);
+			CenterTitle(Title, TextColor);
+		}
+		public void CenterTitle(string title, ConsoleColor color)
+		{
+			var previousColor = Console.ForegroundColor;
+			try
+			{
+				Console.ForegroundColor = color;
+				
+			var lines = title.Replace("\r", "").Split('\n');
+			int startRow = Console.CursorTop; 
+			for (int i = 0; i < lines.Length; i++)
+			{
+				string line = lines[i];
+				if (line.Length > Console.WindowWidth) line = line.Substring(0, Console.WindowWidth);
+
+				int x = Math.Max(0, (Console.WindowWidth - line.Length) / 2); 
+				int y = startRow + i;
+				if (y >= Console.WindowHeight) break;
+
+				try
+				{
+					Console.SetCursorPosition(x, y);
+					Console.ForegroundColor = color;
+					Console.Write(line);
+				}
+				catch
+				{
+					Console.WriteLine(line);
+					continue;
+				}
+			}
+			int finalCursorRow = Math.Min(Console.WindowHeight - 1, startRow + lines.Length);
+			try { Console.SetCursorPosition(0, finalCursorRow); } catch { }
+			
+			}
+			finally
+			{
+				try { Console.ForegroundColor = previousColor; } catch { }
+			}
 		}
 
 		public void CenterText(string text)

@@ -3,7 +3,10 @@ using GameConsole.Base;
 namespace GameConsole.Pages;
 internal class ConnectedScreen : MenuScreen
 {
-    public ConnectedScreen() : base("Connected Screen")
+    public ConnectedScreen() : base(@$"
+┏┳┓┏━┓╻┏┓╻   ┏┳┓┏━╸┏┓╻╻ ╻
+┃┃┃┣━┫┃┃┗┫   ┃┃┃┣╸ ┃┗┫┃ ┃
+╹ ╹╹ ╹╹╹ ╹   ╹ ╹┗━╸╹ ╹┗━┛")
     {
         Add("Choose Game", new GamesOptionsScreen());
         Add("Profile", new ProfileMenu());

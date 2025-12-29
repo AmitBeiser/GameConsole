@@ -8,7 +8,10 @@ namespace GameConsole.Pages
 {
 	internal class MainMenu:MenuScreen
 	{
-		public MainMenu() : base("Main Menu")
+		public MainMenu() : base(@$"
+┏━┓╺┳╸┏━┓┏━┓╺┳╸  ┏┳┓┏━╸┏┓╻╻ ╻
+┗━┓ ┃ ┣━┫┣┳┛ ┃   ┃┃┃┣╸ ┃┗┫┃ ┃
+┗━┛ ╹ ╹ ╹╹┗╸ ╹   ╹ ╹┗━╸╹ ╹┗━┛")
 		{
 			Add("Register", new RegisterScreen());
 			Add("Login",new LoginScreen());

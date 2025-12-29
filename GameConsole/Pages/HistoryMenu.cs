@@ -3,7 +3,10 @@ using GameConsole.Base;
 namespace GameConsole.Pages;
 internal class HistoryMenu : MenuScreen
 {
-    public HistoryMenu() : base("History Menu")
+    public HistoryMenu() : base(@$"
+╻ ╻╻┏━┓╺┳╸┏━┓┏━┓╻ ╻
+┣━┫┃┗━┓ ┃ ┃ ┃┣┳┛┗┳┛
+╹ ╹╹┗━┛ ╹ ┗━┛╹┗╸ ╹ ")
     {
         Add("View Total History", new TotalHistoryScreen());
         Add("View History By Name", new HistoryByName());
